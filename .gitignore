@@ -1,0 +1,70 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python
+.venv
+__pycache__
+
+# Jupyter
+.ipynb_checkpoints
+
+# Node.js
+node_modules
+yarn-error.log*
+
+# Output
+dist
+
+# Dotenv
+.env
+
+# Cookies
+dspro/1_data_collection/data/cookies.json
+
+# Obsidian
+.obsidian/themes
+.obsidian/appearance.json
+.obsidian/workspace.json
+.obsidian/graph.json
+.obsidian/plugins/various-complements/histories.json
+dspro/.obsidian
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/scraping/reports/
+/test-results/
+
+# Wandb
+/dspro/4_modeling/wandb/
+
+# Temp
+/nul
+/tmp/
+/dspro/1_data_collection/tmp/
+/deliverables/ScientificReport/scientific_report_temp.md
+
+# Data
+/scraping/data/
+/dspro/.data
+/dspro/1_data_collection/data/
+/dspro/1_data_collection/.data/
+
+# Models and Tensors
+/dspro/4_modeling/models/
+*.pth
+*.wandb
+
+# Temp
+temp_executed_notebook.py
+
+# Generated LaTeX files
+*.tex
+
+# Pandoc log files
+*.log
+
+# MacOS installation files
+*.pkg
