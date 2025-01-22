@@ -1,0 +1,7 @@
+- id: regex-replace
+  name: Regex Replace
+  description: Perform regex search and replace in specified files.
+  entry: python regex_replace.py
+  language: python
+  files: \.(json|py|ipynb|mojo|🔥|txt|js|ts|yml|yaml)$
+  exclude: ^\..*

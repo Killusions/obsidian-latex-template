@@ -661,7 +661,22 @@ def _save_to_zips_from_tmp(file_location, json_file_location=None, image_file_lo
         print("Skipped zipping and copying " + zip_name)
 
 
-def _get_files_list(file_location, json_file_location=None, image_file_location=None, filter_text=DEFAULT_FILTER_TEXT, type="", download_link=None, pre_download=False, from_remote_only=False, dedupe_and_remove_unpaired=True, skip_checks=False, num_download_connections=16, use_files_list=False, nested=False, tmp_dir_and_zip=False):
+def _get_files_list(
+    file_location,
+    json_file_location=None,
+    image_file_location=None,
+    filter_text=DEFAULT_FILTER_TEXT,
+    type="",
+    download_link=None,
+    pre_download=False,
+    from_remote_only=False,
+    dedupe_and_remove_unpaired=True,
+    skip_checks=False,
+    num_download_connections=16,
+    use_files_list=False,
+    nested=False,
+    tmp_dir_and_zip=False,
+):
     basenames_to_locations_map = {}
     basenames = []
     remote_files = []
@@ -750,12 +765,37 @@ def _get_file_locations(file_location, json_file_location=None, image_file_locat
 # In that case if in the file_location `.pth` files are found, they will be copied to the tmp directory and copied back after the files are loaded. This is used for caching.
 # If this is true and `USE_FILES_LIST=true` is set (and not mapping or pre-downloading), the copying of the `.zip` file will be skipped if `.pth` files are found.
 # If return_load_and_additional_save_callback is set to True, a callback function will be returned that can be used to load the zip file or a specified .pth file later if required, as well as a callback function that can be used to save the `.pth` files.
-def get_data_to_load(loading_file="./data_list", file_location=os.path.join(os.path.dirname(__file__), "1_data_collection/.data"), json_file_location=None, image_file_location=None, filter_text=DEFAULT_FILTER_TEXT, type="", limit=0, allow_new_file_creation=True, map_occurrences_to_files=None, passthrough_map=False, shuffle_seed=None, download_link=None, pre_download=False, from_remote_only=False, allow_file_location_env=False, allow_json_file_location_env=False, allow_image_file_location_env=False, allow_download_link_env=False, num_download_connections=16, allow_num_download_connections_env=True, return_basenames_too=False, return_load_and_additional_save_callback=False):
+def get_data_to_load(
+    loading_file="./data_list",
+    file_location=os.path.join(os.path.dirname(__file__), "1_data_collection/.data"),
+    json_file_location=None,
+    image_file_location=None,
+    filter_text=DEFAULT_FILTER_TEXT,
+    type="",
+    limit=0,
+    allow_new_file_creation=True,
+    map_occurrences_to_files=None,
+    passthrough_map=False,
+    shuffle_seed=None,
+    download_link=None,
+    pre_download=False,
+    from_remote_only=False,
+    allow_file_location_env=False,
+    allow_json_file_location_env=False,
+    allow_image_file_location_env=False,
+    allow_download_link_env=False,
+    num_download_connections=16,
+    allow_num_download_connections_env=True,
+    return_basenames_too=False,
+    return_load_and_additional_save_callback=False,
+):
     if download_link == "default":
         download_link = DEFAULT_DOWNLOAD_LINK
     download_link = resolve_env_variable(download_link, "DOWNLOAD_LINK", allow_download_link_env, None, True)
     if download_link == DEFAULT_DOWNLOAD_LINK:
-        print("Warning: Downloading from our server will soon no longer be supported, please use local data (DOWNLOAD_LINK=None and `SKIP_REMOTE=true` in .env), the dataset is accessible at https://www.kaggle.com/datasets/killusions/street-location-images/ (put unzipped files into 1_data_collection/.data and run yarn data:import on a unix based system, then the import.ipynb notebook), provide a different download link (DOWNLOAD_LINK in .env) or the scaping script can be used to collect your own data.")
+        print(
+            "Warning: Downloading from our server will soon no longer be supported, please use local data (DOWNLOAD_LINK=None and `SKIP_REMOTE=true` in .env), the dataset is accessible at https://www.kaggle.com/datasets/killusions/street-location-images/ (put unzipped files into 1_data_collection/.data and run yarn data:import on a unix based system, then the import.ipynb notebook), provide a different download link (DOWNLOAD_LINK in .env) or the scaping script can be used to collect your own data."
+        )
     skip_remote = resolve_env_variable(str(False), "SKIP_REMOTE", True)
     skip_remote = skip_remote is not None and skip_remote and skip_remote.lower() != "false" and skip_remote.lower() != "0"
     skip_checks = resolve_env_variable(str(False), "SKIP_CHECKS", True)
@@ -799,7 +839,9 @@ def get_data_to_load(loading_file="./data_list", file_location=os.path.join(os.p
         if return_load_and_additional_save_callback:
             load_callback = get_load_callback if not loaded_zip else get_only_load_pth_callback
 
-    basenames, basenames_to_locations_map, downloadable_files, pre_downloaded_new_files = _get_files_list(file_location, json_file_location, image_file_location, filter_text, type, download_link, pre_download, from_remote_only, allow_new_file_creation, skip_checks, num_download_connections=num_download_connections, use_files_list=use_files_list, nested=nested)
+    basenames, basenames_to_locations_map, downloadable_files, pre_downloaded_new_files = _get_files_list(
+        file_location, json_file_location, image_file_location, filter_text, type, download_link, pre_download, from_remote_only, allow_new_file_creation, skip_checks, num_download_connections=num_download_connections, use_files_list=use_files_list, nested=nested
+    )
     downloaded_new_files = pre_downloaded_new_files
 
     has_loading_file = False
@@ -932,8 +974,44 @@ def get_data_to_load(loading_file="./data_list", file_location=os.path.join(os.p
 
 
 # Update data based on factors
-def update_data_to_load(files_to_keep, old_loading_file="./data_list", new_loading_file="./updated_data_list", file_location=os.path.join(os.path.dirname(__file__), "1_data_collection/.data"), json_file_location=None, image_file_location=None, filter_text=DEFAULT_FILTER_TEXT, type="", limit=0, shuffle_seed=None, download_link=None, from_remote_only=False, allow_file_location_env=False, allow_json_file_location_env=False, allow_image_file_location_env=False, allow_download_link_env=False, num_download_connections=16):
-    _, previous_files_to_load = get_data_to_load(old_loading_file, file_location, json_file_location, image_file_location, filter_text, type, limit, allow_new_file_creation=False, shuffle_seed=shuffle_seed, download_link=download_link, from_remote_only=from_remote_only, allow_file_location_env=allow_file_location_env, allow_json_file_location_env=allow_json_file_location_env, allow_image_file_location_env=allow_image_file_location_env, allow_download_link_env=allow_download_link_env, num_download_connections=num_download_connections, return_basenames_too=True)
+def update_data_to_load(
+    files_to_keep,
+    old_loading_file="./data_list",
+    new_loading_file="./updated_data_list",
+    file_location=os.path.join(os.path.dirname(__file__), "1_data_collection/.data"),
+    json_file_location=None,
+    image_file_location=None,
+    filter_text=DEFAULT_FILTER_TEXT,
+    type="",
+    limit=0,
+    shuffle_seed=None,
+    download_link=None,
+    from_remote_only=False,
+    allow_file_location_env=False,
+    allow_json_file_location_env=False,
+    allow_image_file_location_env=False,
+    allow_download_link_env=False,
+    num_download_connections=16,
+):
+    _, previous_files_to_load = get_data_to_load(
+        old_loading_file,
+        file_location,
+        json_file_location,
+        image_file_location,
+        filter_text,
+        type,
+        limit,
+        allow_new_file_creation=False,
+        shuffle_seed=shuffle_seed,
+        download_link=download_link,
+        from_remote_only=from_remote_only,
+        allow_file_location_env=allow_file_location_env,
+        allow_json_file_location_env=allow_json_file_location_env,
+        allow_image_file_location_env=allow_image_file_location_env,
+        allow_download_link_env=allow_download_link_env,
+        num_download_connections=num_download_connections,
+        return_basenames_too=True,
+    )
     files_to_load = []
     base_files_to_keep = set([get_basename(file) for file in files_to_keep])
     for previous_file_to_load in previous_files_to_load:

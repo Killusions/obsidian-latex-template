@@ -6,11 +6,8 @@ from wandb_downloader import WandbDownloader
 # Replace `example_config_param` with the actual parameter name(s) you want to use
 
 
-
 def GET_RUN_CONFIGURATIONS(name, example_config_param=None):
-    return [
-        {"project": f"dspro-predicting-{name}", "example_config_param": example_config_param}
-    ]
+    return [{"project": f"dspro-predicting-{name}", "example_config_param": example_config_param}]
 
 
 class BestRunLoader:

@@ -45,6 +45,12 @@ dspro/.obsidian
 /tmp/
 /dspro/1_data_collection/tmp/
 /deliverables/ScientificReport/scientific_report_temp.md
+* copy.*
+* copy *.*
+* Copy.*
+* Copy *.*
+mprofile_*.dat
+*.lprof
 
 # Data
 /scraping/data/
@@ -53,12 +59,14 @@ dspro/.obsidian
 /dspro/1_data_collection/.data/
 
 # Models and Tensors
-/dspro/4_modeling/models/
+/aicomp/4_modeling/models/
 *.pth
 *.wandb
+*.npy
 
 # Temp
 temp_executed_notebook.py
+temp.*
 
 # Generated LaTeX files
 *.tex

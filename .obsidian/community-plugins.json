@@ -13,5 +13,9 @@
   "text-extractor",
   "various-complements",
   "automatic-table-of-contents",
-  "obsidian-citation-plugin"
+  "obsidian-citation-plugin",
+  "quick-latex",
+  "copilot",
+  "obsidian-git",
+  "local-gpt"
 ]

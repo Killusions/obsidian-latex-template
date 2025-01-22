@@ -1,5 +1,5 @@
 ---
-title: 'Scientific Report'
+title: Scientific Report
 subtitle: 'Team name: Example Team'
 author:
   - Linus Schlumberger
@@ -8,7 +8,7 @@ author:
 keywords:
   - Ai
   - Deep Learning
-date: 30-06-2024
+date: 17-01-2025
 toc: true
 toc-depth: 2
 toc-own-page: true
@@ -19,9 +19,39 @@ titlepage: true
 titlepage-rule-color: '360049'
 titlepage-rule-height: 1
 titlepage-background: ./deliverables/ScientificReport/.assets/background5.pdf
-linkcolor: '0096FF'
+linkcolor: 0096FF$
+linestretch: 1.05
+fontsize: 10pt
+
+header-includes:
+  - |
+    \RedeclareSectionCommand[
+      beforeskip=0.1em,
+      afterskip=0.3em
+    ]{section}
+
+    \RedeclareSectionCommand[
+      beforeskip=0.05em,
+      afterskip=0.2em
+    ]{subsection}
+
+    \RedeclareSectionCommand[
+      beforeskip=0.01em,
+      afterskip=0.1em
+    ]{subsubsection}
+
+    \RedeclareSectionCommand[
+      beforeskip=0.0em,
+      afterskip=0.05em
+    ]{paragraph}
 ---
 
-# Introduction
+##### Tables with images need to have a header (like this one) right before (can have an empty header), they also need a table header:
 
-# References
+| **Before DQA pipeline**   |                           |                           |
+| ------------------------- | ------------------------- | ------------------------- |
+| ![](./images/example.png) | ![](./images/example.png) | ![](./images/example.png) |
+| **After DQA pipeline**    |                           |                           |
+| ![](./images/example.png) | ![](./example.png)        | ![](./images/example.png) |
+
+#### Bibliography

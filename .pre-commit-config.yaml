@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.4.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: []
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml
+        exclude: .obsidian/
+      - id: end-of-file-fixer
+        exclude: .obsidian/
+      - id: trailing-whitespace
+        exclude: .obsidian/
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+      - id: black-jupyter
+  - repo: local
+    hooks:
+      - id: regex-replace
+        name: Regex Replace
+        description: Perform regex search and replace in specified files.
+        entry: python .search_and_replace_hook/regex_replace.py
+        language: python
+        files: \.(json|py|ipynb|mojo|🔥|txt|js|ts|yml|yaml)$
+        exclude: ^\..*
