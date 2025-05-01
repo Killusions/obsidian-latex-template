@@ -69,8 +69,10 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
+$if(abstract)$abstract=on,$endif$
   ,captions=tableheading
 ]{$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$}
+\usepackage[a-1b]{pdfx}
 $if(beamer)$
 $if(background-image)$
 \usebackgroundtemplate{%
@@ -896,7 +898,6 @@ $if(page-background)$
 \backgroundsetup{
 scale=1,
 color=black,
-opacity=$if(page-background-opacity)$$page-background-opacity$$else$0.2$endif$,
 angle=0,
 contents={%
   \includegraphics[width=\paperwidth,height=\paperheight]{$page-background$}
@@ -982,7 +983,10 @@ $endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
-\pagenumbering{arabic}
+\pagenumbering{roman}
+$if(has-frontmatter)$
+\frontmatter
+$endif$
 $endif$
 $endif$
 
@@ -1004,6 +1008,9 @@ $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
+$endif$
+$if(abstract-own-page)$
+\newpage
 $endif$
 $endif$
 
@@ -1055,6 +1062,7 @@ $endif$
 $if(has-frontmatter)$
 \mainmatter
 $endif$
+\pagenumbering{arabic}
 $body$
 
 $if(has-frontmatter)$

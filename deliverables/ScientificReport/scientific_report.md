@@ -44,6 +44,10 @@ header-includes:
       beforeskip=0.0em,
       afterskip=0.05em
     ]{paragraph}
+
+abstract-own-page: true
+abstract: |
+  TODO: Insert abstract here.
 ---
 
 ##### Tables with images need to have a header (like this one) right before (can have an empty header), they also need a table header:
