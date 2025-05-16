@@ -298,7 +298,7 @@ $endif$
 $else$
 $if(beamer)$
 $else$
-\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+\usepackage[margin=3.0cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
 $if(titlepage-logo)$
@@ -492,6 +492,20 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn
+      \section*{\abstractname}%
+    \else
+      \begin{center}%
+        {\bfseries \large\abstractname\vspace{\z@}}%
+      \end{center}%
+      \quotation
+    \fi}
+    {\if@twocolumn\else\endquotation\fi}
+\makeatother
+
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -607,7 +621,7 @@ $if(titlepage-background)$
 $endif$
 $if(geometry)$
 $else$
-\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+\usepackage[margin=3.0cm,includehead=true,includefoot=true,centering]{geometry}
 $endif$
 $endif$
 
@@ -1006,6 +1020,10 @@ $if(beamer)$
 $endif$
 $if(abstract)$
 \begin{abstract}
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+\normalsize
 $abstract$
 \end{abstract}
 $endif$

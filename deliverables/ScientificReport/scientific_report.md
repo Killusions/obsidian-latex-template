@@ -19,7 +19,7 @@ titlepage: true
 titlepage-rule-color: '360049'
 titlepage-rule-height: 1
 titlepage-background: ./deliverables/ScientificReport/.assets/background5.pdf
-linkcolor: 0096FF$
+linkcolor: 0096FF
 linestretch: 1.05
 fontsize: 10pt
 
