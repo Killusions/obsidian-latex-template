@@ -1,6 +1,6 @@
 ---
 title: Scientific Report
-subtitle: 'Team name: Example Team'
+subtitle: "Team name: Example Team"
 author:
   - Linus Schlumberger
   - Lukas Stöckli
@@ -12,17 +12,18 @@ date: 17-01-2025
 toc: true
 toc-depth: 2
 toc-own-page: true
+toc-title: "Table of Contents"
 bibliography: ./deliverables/ScientificReport/references/references.bib
 csl: ./deliverables/ScientificReport/.assets/apa.csl
 lang: en
 titlepage: true
-titlepage-rule-color: '360049'
+titlepage-rule-color: "360049"
 titlepage-rule-height: 1
 titlepage-background: ./deliverables/ScientificReport/.assets/background5.pdf
-linkcolor: 0096FF
-linestretch: 1.05
+linkcolor: "link"
+urlcolor: "link"
+linestretch: 1.2
 fontsize: 10pt
-
 header-includes:
   - |
     \RedeclareSectionCommand[
@@ -45,6 +46,7 @@ header-includes:
       afterskip=0.05em
     ]{paragraph}
 
+    \definecolor{link}{HTML}{0096FF}
 abstract-own-page: true
 abstract: |
   TODO: Insert abstract here.
