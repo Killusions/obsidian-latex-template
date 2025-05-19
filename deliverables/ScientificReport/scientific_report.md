@@ -54,6 +54,8 @@ abstract: |
 
 ##### Tables with images need to have a header (like this one) right before (can have an empty header), they also need a table header:
 
+_Images should also be using the path `./images/<file>` to be converted correctly._
+
 | **Before DQA pipeline**   |                           |                           |
 | ------------------------- | ------------------------- | ------------------------- |
 | ![](./images/example.png) | ![](./images/example.png) | ![](./images/example.png) |
