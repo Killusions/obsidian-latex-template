@@ -10,7 +10,9 @@ The project uses Markdown (and LaTeX) and yarn v1 (Node.js) as a task runner.
 
 It uses Obsidian (Markdown) for [documentation](./Overview.md) and planning, it can also be viewed with any other markdown viewer (including GitHub/GitLab).
 
-For Node.js dependency management it uses [yarn v1](https://classic.yarnpkg.com/lang/en/).
+To open this project in Obsidian, open the root folder of this repository as a Vault, all plugins and settings should already be set up.
+
+For Node.js dependency management it uses [yarn v1](https://classic.yarnpkg.com/lang/en/), please first install Node.js with npm.
 
 To install yarn, run `npm install --global yarn`.
 
@@ -23,6 +25,8 @@ To install LaTex and Pandoc for building the documentation, run `yarn pdf:prepar
 To build the PDF, run `yarn pdf:export` (may take a while).
 
 To format, use `yarn format`.
+
+To store images and the PDF, it uses [Git LFS](https://git-lfs.com/) to not bloat project storage, make sure to install it first.
 
 ## Authors and acknowledgment
 
