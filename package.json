@@ -7,19 +7,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "watch": "tsc -w ",
-    "build": "tsc",
-    "start": "npm run build && node dist/index.js",
-    "scrape:prepare": "playwright install",
-    "scrape:environment": "npm run build && node 'dist/1_data_collection/playwright_setup_environment.js'",
-    "scrape:direct": "playwright test --config='dspro/1_data_collection/playwright.config.ts' --project=chromium-stealth",
-    "scrape": "npm run scrape:environment && npm run scrape:direct",
-    "scrape:ui": "npm run scrape:environment && playwright test --config='dspro/1_data_collection/playwright.config.ts' --project=chromium-stealth --ui",
-    "scrape:deploy": "export CI=true && npm run scrape:environment && playwright test --config='dspro/1_data_collection/playwright.config.ts' --project=chromium-stealth",
     "format": "prettier --write . --print-width 2000 --prose-wrap preserve --single-quote",
-    "python:prepare:full": "pip3 install poetry==1.8.3 && poetry install && poetry run pre-commit install",
-    "python:prepare": "echo This command assumes poetry was already installed, otherwise run python:prepare:full. && poetry install && poetry run pre-commit install",
-    "python:format": "poetry run black .",
     "pdf:prepare": "run-script-os",
     "pdf:prepare:default": "echo 'Unsupported OS. Please install Pandoc and BasicTeX manually.'",
     "pdf:prepare:win32": "choco install pandoc && choco install miktex && echo \"Please restart your terminal.\"",
@@ -34,17 +22,8 @@
     "pdf:export:win32": "copy .\\deliverables\\ScientificReport\\scientific_report.md .\\deliverables\\ScientificReport\\scientific_report_temp.md && yarn pdf:replace-images:default && pandoc .\\deliverables\\ScientificReport\\scientific_report_temp.md --number-sections --dpi 150 --template .\\deliverables\\ScientificReport\\.assets\\eisvogel.latex --output .\\deliverables\\ScientificReport\\scientific_report.pdf --from markdown --citeproc --csl .\\deliverables\\ScientificReport\\.assets\\apa.csl && del .\\deliverables\\ScientificReport\\scientific_report_temp.md"
   },
   "devDependencies": {
-    "@playwright/test": "^1.41.2",
-    "@types/node": "^20.11.20",
-    "playwright-extra": "^4.3.6",
-    "prettier": "^3.3.2",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "prettier": "^3.5.3",
     "replace": "^1.2.2",
-    "run-script-os": "^1.1.6",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "check-disk-space": "^3.4.0",
-    "dotenv": "^16.4.5"
+    "run-script-os": "^1.1.6"
   }
 }

@@ -2,37 +2,31 @@
 
 ## General
 
-This is a project made from the `dspro_template`.
+This is a project made from the `obsidian-latex-template`.
 
-It consists of a codebase, a [scientific report](./deliverables/ScientificReport/scientific_report.pdf) ([source](./deliverables/ScientificReport/scientific_report.md)).
+It of a [scientific report](./deliverables/ScientificReport/scientific_report.pdf) and its [source](./deliverables/ScientificReport/scientific_report.md).
 
-The project uses Markdown (and LaTeX), Python and Node.js with Typescript.
+The project uses Markdown (and LaTeX) and yarn v1 (Node.js) as a task runner.
 
 It uses Obsidian (Markdown) for [documentation](./Overview.md) and planning, it can also be viewed with any other markdown viewer (including GitHub/GitLab).
 
-For Python dependency management it uses [poetry](https://python-poetry.org/).
-
-To set it up do `poetry install`, to add dependencies use `poetry add`.
-
-To run commands use `poetry shell` to spawn a subshell.
-
-Select the `venv` after running `poetry install` for Jupyter Notebooks.
-
 For Node.js dependency management it uses [yarn v1](https://classic.yarnpkg.com/lang/en/).
 
-To set it up simply type `yarn`.
+To install yarn, run `npm install --global yarn`.
+
+To then set up this project simply type `yarn`.
 
 To see available commands, check out the `scripts` section of the `package.json` and run them using `yarn <command>`.
 
-All project relevant commands are handled via yarn, including formatting our Python, Typescript, and Markdown files and generating our report from our Markdown source.
+To install LaTex and Pandoc for building the documentation, run `yarn pdf:prepare` (may trigger large downloads).
 
-## Collecting data
+To build the PDF, run `yarn pdf:export` (may take a while).
 
-Simply run `yarn scrape:prepare`, then `yarn scrape:ui` (for local testing), `yarn scrape` or `scrape:deploy` (for multiple parallel instances).
+To format, use `yarn format`.
 
 ## Authors and acknowledgment
 
-The whole project was done by the following students:
+This template is downstream from a project done by the following students:
 
 - [Linus Schlumberger](https://github.com/Killusions)
 - [Lukas Stöckli](https://github.com/Valairaa)
