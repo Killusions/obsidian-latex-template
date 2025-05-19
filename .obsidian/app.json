@@ -1,6 +1,6 @@
 {
   "useMarkdownLinks": true,
-  "attachmentFolderPath": "./assets",
+  "attachmentFolderPath": "./images",
   "pdfExportSettings": {
     "pageSize": "A4",
     "landscape": false,
