@@ -69,7 +69,7 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
-$if(abstract)$abstract=on,$endif$
+abstract=on,
   ,captions=tableheading
 ]{$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$}
 \usepackage[a-1b]{pdfx}
