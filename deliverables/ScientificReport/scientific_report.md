@@ -52,7 +52,11 @@ abstract: |
   TODO: Insert abstract here.
 ---
 
-##### Tables with images need to have a header (like this one) right before (can have an empty header), they also need a table header:
+# Header
+
+## Subheader
+
+### Tables with images need to have a header (like this one) right before (can have an empty header), they also need a table header:
 
 _Images should also be using the path `./images/<file>` to be converted correctly._
 
@@ -62,4 +66,14 @@ _Images should also be using the path `./images/<file>` to be converted correctl
 | **After DQA pipeline**    |                           |                           |
 | ![](./images/example.png) | ![](./example.png)        | ![](./images/example.png) |
 
-#### Bibliography
+Links to sections should be in kebab-case, like `[link](#tables-with-images...)`.
+
+## Unnumbered header {-}
+
+This section has an unnumbered header
+
+### {-}
+
+This section has an empty header, should be one higher than the table of contents (toc) level.
+
+# Bibliography {-}
