@@ -76,4 +76,8 @@ This section has an unnumbered header
 
 This section has an empty header, should be one higher than the table of contents (toc) level.
 
+```{=latex}
+\pagebreak
+```
+
 # Bibliography {-}
