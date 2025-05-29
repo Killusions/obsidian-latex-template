@@ -298,7 +298,7 @@ $endif$
 $else$
 $if(beamer)$
 $else$
-\usepackage[margin=3.0cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+\usepackage[margin=$if(page-margin)$$page-margin$$else$3.0cm$endif$,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
 $if(titlepage-logo)$

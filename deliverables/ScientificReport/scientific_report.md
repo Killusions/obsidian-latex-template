@@ -50,6 +50,7 @@ header-includes:
 abstract-own-page: true
 abstract: |
   TODO: Insert abstract here.
+page-margin: 2.5cm
 ---
 
 # Header
