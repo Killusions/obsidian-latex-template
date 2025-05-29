@@ -68,6 +68,25 @@ _Images should also be using the path `./images/<file>` to be converted correctl
 
 Links to sections should be in kebab-case, like `[link](#tables-with-images...)`.
 
+You may also use inline LaTeX for formulas or tables.
+
+$$
+\begin{aligned}
+&\text{Table 1. Example table.}^{1} \\[6pt]
+&\begin{array}{lccc}
+\hline
+\text{Type}
+  & \text{Metric 1}
+  & \text{Metric 2}
+\\\hline
+\text{Experiment 1}     & 0.55 & 0.56 \\
+\text{Experiment 2} & 0.87 & 0.86 \\
+\hline
+\end{array} \\[6pt]
+&^{1}\!\text{ Additional information.}
+\end{aligned}
+$$
+
 ## Unnumbered header {-}
 
 This section has an unnumbered header
@@ -76,8 +95,6 @@ This section has an unnumbered header
 
 This section has an empty header, should be one higher than the table of contents (toc) level.
 
-```{=latex}
-\pagebreak
-```
+<div style="page-break-after: always; visibility: hidden;">\pagebreak</div>
 
 # Bibliography {-}
